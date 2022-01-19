@@ -1,4 +1,5 @@
 using Unity.MLAgents;
+using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ public class RollerAgent: Agent
 {
     public Rigidbody rbody;
     public GameObject target;
+    public float forceMultiplier = 50;
 
     public void Start()
     {
@@ -13,11 +15,10 @@ public class RollerAgent: Agent
     }
     public override void OnEpisodeBegin()
     {
-        if (transform.position.y < 0)
-        {
-            transform.position = new Vector3(0, 0.5f, 0);
-        }
-        transform.position = new Vector3(Random.value * 8 - 4,0.5f,Random.value * 8 - 4);
+       
+        transform.localPosition = new Vector3(Random.value * 8 - 4, 0.5f, Random.value * 8 - 4);
+
+        target.transform.localPosition = new Vector3(Random.value * 8 - 4, 0.5f, Random.value * 8 - 4);
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -28,25 +29,30 @@ public class RollerAgent: Agent
         sensor.AddObservation(rbody.velocity.z);
     }
 
-    public float forceMultiplier = 10;
-    public override void OnActionReceived(float[] vectorAction)
+    
+    public override void OnActionReceived(ActionBuffers action)
     {
-        rbody.AddForce(vectorAction[0] * forceMultiplier, 0, vectorAction[1] * forceMultiplier);
-        if (Vector3.Distance(target.transform.position, transform.position) < 1.42f)
+        rbody.AddForce(action.ContinuousActions[0] * forceMultiplier, 0, action.ContinuousActions[1] * forceMultiplier);
+        Vector3 p1 = target.transform.position;
+        Vector3 p2 = transform.position;
+        AddReward(-0.001f);
+        if (Vector2.Distance(new Vector2(p1.x,p1.z), new Vector2(p2.x,p2.z)) < 1.42f)
         {
             AddReward(1.0f);
             EndEpisode();
         }
 
-        if (transform.position.y < 0)
+        if (transform.localPosition.x > 5.5f || transform.localPosition.x < -5.5f || transform.localPosition.z > 5.5f || transform.localPosition.z < -5.5f)
         {
+            AddReward(-1f);
             EndEpisode();
         }
     }
 
-    public override void Heuristic(float[] actionsOut)
+    public override void Heuristic(in ActionBuffers actionsOut)
     {
-        actionsOut[0] = Input.GetAxis("Horizontal");
-        actionsOut[1] = Input.GetAxis("Vertical");
+        var discreteActionsOut = actionsOut.ContinuousActions;
+        discreteActionsOut[0] = Input.GetAxis("Horizontal");
+        discreteActionsOut[1] = Input.GetAxis("Vertical");
     }
 }

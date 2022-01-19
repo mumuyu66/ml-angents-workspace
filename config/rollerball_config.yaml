@@ -1,5 +1,5 @@
 behaviors:
-  3DBall:
+  RollerBall:
     trainer_type: ppo
     hyperparameters:
       batch_size: 64
