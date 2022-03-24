@@ -1,12 +1,42 @@
 ﻿<Properties StartupConfiguration="{27D4548A-E807-D5EE-DD9F-E497FA5134F7}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/RollerAgent.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/LittleBattle/Module/Battle/Actor/Config/ActorConfig.cs">
     <Files>
-      <File FileName="Assets/Scripts/RollerAgent.cs" Line="14" Column="18" />
+      <File FileName="Assets/Scripts/LittleBattle/Module/Battle/BattleBuilder.cs" Line="8" Column="2" />
+      <File FileName="Assets/Scripts/LittleBattle/Module/Battle/Battlefield.cs" />
+      <File FileName="Assets/Scripts/LittleBattle/Module/Battle/Actor/ActorContainer.cs" />
+      <File FileName="Assets/Scripts/LittleBattle/Module/Battle/DataProvider.cs" />
+      <File FileName="Assets/Scripts/LittleBattle/Module/Battle/BattleConfig.cs" />
+      <File FileName="Assets/Scripts/LittleBattle/Module/Battle/Actor/Actor.cs" Line="16" Column="15" />
+      <File FileName="Assets/Scripts/LittleBattle/Module/Battle/Actor/Config/ActorConfig.cs" Line="15" Column="1" />
+      <File FileName="Assets/Scripts/LittleBattle/Module/Battle/Actor/Config/PropConfig.cs" Line="12" Column="28" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="my_ml_angents" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="LittleBattle" expanded="True">
+                  <Node name="Module" expanded="True">
+                    <Node name="Battle" expanded="True">
+                      <Node name="Actor" expanded="True">
+                        <Node name="Config" expanded="True">
+                          <Node name="ActorConfig.cs" selected="True" />
+                        </Node>
+                      </Node>
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="b2560173-3d71-455d-81e0-84dd9014c223" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="18c118ed-1729-4f2b-9943-340758f18ef5" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
