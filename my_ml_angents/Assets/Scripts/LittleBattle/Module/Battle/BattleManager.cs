@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class BattleManager : MonoBehaviour
 {
+    public DataProvider data;
     void Start()
     {
+
     }    
 }

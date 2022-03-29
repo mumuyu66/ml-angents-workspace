@@ -12,7 +12,16 @@ public class Actor
     public int Layer { get; private set; }
     public int Tag { get; private set; }
     public int Faction { get; private set; }
-    public int ComponentBits { get; private set; }   
+    public int ComponentBits { get; private set; }
     #endregion
 
+    public void Build(ActorConfig config)
+    {
+        
+    }
+
+    public void Start()
+    {
+        
+    }
 }
